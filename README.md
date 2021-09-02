@@ -34,7 +34,7 @@ npm start
   * Java 1.8
   * Spring Boot Starter 2.1.12-RELEASE
   * Mysql-connector
-* Côté IH%:
+* Côté IHM:
   * Angular 11.2.4
   * ngf-bootstrap 0.0.5
   * sweetalert 2.1.2
