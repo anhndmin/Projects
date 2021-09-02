@@ -1,0 +1,26 @@
+<div class="albums" *ngIf="albums">
+  <div class="row">
+      <div *ngFor="let album of albums">
+          <div class="col-md-3">
+              <div class="bibliotheque album">
+                  <div *ngIf="album.vignette">
+                      <img class="album-thumb img-thumbnail" src="{{album.vignette}}">    
+                      <h5 class="titre ">{{album.titre}}</h5>
+                      <div >Date de sortie: {{album.dateSortie}}</div>
+                      <div >Duree: {{album.duree}}</div>
+                      <div *ngIf="album.tag">Tag: {{album.tag}}</div>
+                      <button class="styled-bibliotheque space" (click)='supprimeBibliotheque(album.id)'>Supprimer</button>
+                      <button class="styled-bibliotheque space" (click)='ajouterTag(album.id)'>Ajouter tag</button>
+                      <div *ngIf="album.isFavoris == true;else elseBlock">
+                        <button class="styled-delete space" (click)='ajoutFavoris(album.id, false)'>Retirer de favoris</button>
+                        <div><img src="../../assets/images/star.png" height="30px" width="30px"></div>
+                      </div>
+                      <ng-template #elseBlock>
+                        <button class="styled-bibliotheque space" (click)='ajoutFavoris(album.id, true)'>Ajouter en favoris</button>
+                      </ng-template>
+                  </div>   
+               </div>    
+          </div>
+      </div>    
+  </div>   
+</div>

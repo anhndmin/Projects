@@ -1,0 +1,35 @@
+<h2 class="heading">Artistes</h2>
+<div class="artistes" *ngIf="artistes">
+  <div class="row">
+      <div *ngFor="let artiste of artistes">
+          <div class="col-md-3" *ngIf="artiste.images.length > 0">
+              <div class="well album">
+                  <div>
+                      <img class="album-thumb img-thumbnail" src="{{artiste.images[0].url}}"> 
+                      <br>   
+                      <h5><a href="/artiste/{{artiste.id}}/{{artiste.name}}">{{artiste.name}}</a></h5>
+                  </div>   
+               </div>    
+          </div>
+      </div>    
+  </div>    
+</div>
+<h2 class="heading">Albums</h2>
+<div class="albums" *ngIf="albums">
+  <div class="row">
+      <div *ngFor="let album of albums">
+          <div class="col-md-3">
+              <div class="well album">
+                  <div *ngIf="album.vignette">
+                      <img class="album-thumb img-thumbnail" src="{{album.vignette}}" height="640px" width="640px">    
+                      <h5 class="titre">{{album.titre}}</h5>
+                      <div >Date de sortie: {{album.dateSortie}}</div>
+                      <div >Durée: {{album.dureeEnHeure}}</div>
+                      
+                      <button class="favorite styled space" (click)='ajoutBibliotheque(album)'>Ajouter à la Bibliothèque</button>
+                  </div>   
+               </div>    
+          </div>
+      </div>    
+  </div>    
+</div>
